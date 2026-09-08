@@ -1,4 +1,4 @@
-import classes.EspadaDePedra;
+package velhoSteve;
 
 public class proceduralOldSteveCode {
     public static String fabricarPicareta(String material, int durabilidade, int forca) {
@@ -124,13 +124,5 @@ public class proceduralOldSteveCode {
 //        int p5For = 30;
 //        String p5 = fabricarPicareta(p5Mat, p5Dur, p5For);
 //        System.out.println("  • " + p5);
-
-        //adicionar uma classe picareta para concentrar atributos e metodos
-        //adicao de picaretas criadas em array
-
-        EspadaDePedra espada = new EspadaDePedra();
-
-        System.out.println(espada);
-
     }
 }

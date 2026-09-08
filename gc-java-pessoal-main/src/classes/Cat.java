@@ -1,26 +1,22 @@
 package classes;
 
-public class Cat {
-    private String name;
+public class Cat extends AnimalAbstrato{
     private String color;
     private int age ;
 
     public Cat(int age, String color, String name) {
+        super(name);
         this.age = age;
         this.color = color;
-        this.name = name;
     }
 
     public String meow(){
         return "miau miau caramba!";
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public void emitirSom() {
+        System.out.println("miau miau");
     }
 
     public String getColor() {
@@ -37,5 +33,13 @@ public class Cat {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Cat" +
+                "\nname: " + Cat.super.getName() +
+                "\ncolor: " + color +
+                "\nage: " + age;
     }
 }
