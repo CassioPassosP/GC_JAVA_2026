@@ -6,6 +6,13 @@ public class Warrior extends Character{
         this.fisicFource = fisicFource;
     }
 
+    @Override
+    public void atack(Character target) {
+        int receiveAtackDamage = getBaseDamege() + getFisicFource();
+        target.receiveDamage(receiveAtackDamage);
+        System.out.println("Ataque com dano critico de forca do guerreiro " + getName() + "\n" + "Dano causado: " + receiveAtackDamage);
+    }
+
     public int getFisicFource() {
         return fisicFource;
     }

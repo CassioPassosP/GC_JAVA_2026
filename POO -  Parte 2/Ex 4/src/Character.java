@@ -1,4 +1,4 @@
-public class Character {
+public abstract class Character {
     private String name;
     private String elixir;
     private int baseDamege;
@@ -34,10 +34,10 @@ public class Character {
     }
 
     public void atack(Character target){
-
+        target.receiveDamage(getBaseDamege());
     }
 
     public void receiveDamage(int quantity){
-
+        quantity = quantity - getBaseDamege();
     }
 }
