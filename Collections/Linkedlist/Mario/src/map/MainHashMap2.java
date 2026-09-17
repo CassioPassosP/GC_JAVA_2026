@@ -1,6 +1,7 @@
+package map;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.*;
 
 public class MainHashMap2 {
     public static void main(String[] args) {
