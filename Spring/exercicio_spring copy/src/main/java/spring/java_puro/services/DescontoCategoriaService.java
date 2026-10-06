@@ -13,19 +13,11 @@ import java.nio.file.Paths;
 public class DescontoCategoriaService implements ICalculadoraDescontoService {
 
     @Value("${desconto.percentual}")
-    private String caminhoArquivo;
-
-    public Double lerComoDouble() throws IOException {
-        Path path = Paths.get(caminhoArquivo);
-        // Lê todo o conteúdo do arquivo como uma String
-        String conteudo = Files.readString(path);
-
-        // retorna em double
-        return Double.parseDouble(conteudo);
-    }
+    private double desconto;
 
     @Override
     public double calcular(double valorPedido) throws IOException {
-        return valorPedido * lerComoDouble();
+        return valorPedido * desconto;
     }
+
 }

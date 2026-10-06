@@ -1,31 +1,28 @@
 package spring.java_puro;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import spring.java_puro.controller.PedidoController;
+import spring.java_puro.entities.Pedido;
+import spring.java_puro.entities.Produto;
+
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        
+        Produto carro = new Produto("Carro","Automovel");
 
-//        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-//        PedidoController pedidoController = (PedidoController) context.getBean("pedidoController");
-        //pedidoController.criarPedido();
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(BeanConfig.class);
 
-//        PedidoRepository repository =
-//                new PedidoRepository();
-//
-//        NotificacaoService notificacao =
-//                new EmailNotificacaoService();
-//
-//        PedidoService pedidoService =
-//                new PedidoService(
-//                        repository,
-//                        notificacao
-//                );
-//
-//
-//        PedidoController pedidoController = new PedidoController(pedidoService);
-//
-//        pedidoController.criarPedido(123, "Notebook","Informática",500);
-//        pedidoController.listarPedidos();
+        PedidoController pedidoController =
+                context.getBean(PedidoController.class);
+
+        pedidoController.criarPedido(10,"Carro hb20", "Automovel", 60000);
+
+        pedidoController.criarPedido(11,"Carro sandero", "Automovel", 40000);
+
+        //pedidoController.aplicarDesconto();
     }
 }

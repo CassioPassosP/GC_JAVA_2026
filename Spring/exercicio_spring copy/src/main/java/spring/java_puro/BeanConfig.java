@@ -3,20 +3,33 @@ package spring.java_puro;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
+import spring.java_puro.controller.PedidoController;
 import spring.java_puro.respositories.PedidoRepository;
 import spring.java_puro.services.*;
 
 @Configuration
+@PropertySource("classpath:config.properties")
 public class BeanConfig {
-
-//    @Bean
-//    public PedidoService pedidoService(){
-//        return new PedidoService();
-//    }
 
     @Bean
     public PedidoRepository pedidoRepository() {
         return new PedidoRepository();
+    }
+
+    @Bean
+    public ICalculadoraDescontoService descontoCategoriaService(){
+        return new DescontoCategoriaService();
+    }
+
+    @Bean
+    public PedidoService pedidoService(PedidoRepository pedidoRepository, INotificacaoService NotificacaoService){
+        return new PedidoService(pedidoRepository, NotificacaoService);
+    }
+
+    @Bean
+    public PedidoController pedidoController(){
+        return new PedidoController();
     }
 
     @Bean
@@ -29,17 +42,5 @@ public class BeanConfig {
     public INotificacaoService smsNotificacaoService(){
         return new SmsNotificacaoService();
     }
-    @Bean
-    public ICalculadoraDescontoService descontoCategoriaService(){
-        return new DescontoCategoriaService();
-    }
 
-//    @Bean
-//    public PedidoService pedidoService() {
-//        PedidoService pedidoServiceervice = new PedidoService(pedidoRepository, emailNotificacaoService);
-//        EmailNotificacaoService emailNotificacaoService = new EmailNotificacaoService();
-//        pedidoServiceervice.setPedidoService(pedidoRepository());
-//
-//        return service;
-//    }
 }

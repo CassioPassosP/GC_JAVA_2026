@@ -19,7 +19,7 @@ public class PedidoController {
     @Autowired
     private DescontoCategoriaService descontoCategoriaService;
 
-    public void criarPedido(int numPedido, String nome, String categoria,int preco){
+    public void criarPedido(int numPedido, String nome, String categoria,int preco) throws IOException {
         pedidoService.criarPedido(new Pedido(numPedido, new Produto(nome, categoria), preco));
     }
 
@@ -27,7 +27,18 @@ public class PedidoController {
         System.out.println(pedidoService.listarPedidos());
     }
 
+    //o spring framework usa o set para inserir no controller
+    public void setDescontoCategoriaService(DescontoCategoriaService descontoCategoriaService) {
+        this.descontoCategoriaService = descontoCategoriaService;
+    }
+
+    //o spring framework usa o set para inserir no controller
+    public void setPedidoService(PedidoService pedidoService) {
+        this.pedidoService = pedidoService;
+    }
+
     public void aplicarDesconto(Pedido pedido) throws IOException {
-        System.out.println(descontoCategoriaService.calcular(pedido.getPreco()));
+        pedido.setPreco(descontoCategoriaService.calcular(pedido.getPreco()));
+        System.out.println(pedido.getPreco());
     }
 }

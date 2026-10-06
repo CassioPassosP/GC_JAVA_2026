@@ -5,9 +5,17 @@ public class Pedido {
     private final Produto produto;
     private double preco;
 
-    public Pedido(long numeroPedido, Produto produto, int preco) {
+    public Pedido(long numeroPedido, Produto produto, double preco) {
         this.numeroPedido = numeroPedido;
         this.produto = produto;
+        this.preco = preco;
+    }
+
+    public long getNumeroPedido() {
+        return numeroPedido;
+    }
+
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 

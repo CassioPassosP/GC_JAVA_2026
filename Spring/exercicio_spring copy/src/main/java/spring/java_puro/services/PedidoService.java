@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 import spring.java_puro.entities.Pedido;
 import spring.java_puro.respositories.PedidoRepository;
 
+import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PedidoService {
@@ -29,22 +32,19 @@ public class PedidoService {
         this.notificacaoService = notificacaoService;
     }
 
-    //o spring framework usa o set para inserir no controller
-    public void setDescontoCategoriaService(DescontoCategoriaService descontoCategoriaService) {
-        this.descontoCategoriaService = descontoCategoriaService;
-    }
-
-    //o spring framework usa o set para inserir no controller
-    public void setPedidoService(PedidoService pedidoService) {
-        this.pedidoService = pedidoService;
-    }
-
-    public void criarPedido(Pedido pedido) {
+    public void criarPedidoComDesconto(Pedido pedido) throws IOException {
         pedidoRepository.salvar(pedido);
         notificacaoService.notificar(pedido);
+    }
+
+    public void criarPedido(Pedido pedido) throws IOException {
+        pedidoRepository.salvar(pedido);
+        notificacaoService.notificar(pedido);
+
     }
 
     public List<Pedido> listarPedidos() {
         return pedidoRepository.getPedidos();
     }
+
 }
