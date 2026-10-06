@@ -1,5 +1,8 @@
 package spring_xml.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class GCService implements IHelloService {
 
     public GCService() {

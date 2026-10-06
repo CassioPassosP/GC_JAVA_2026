@@ -5,9 +5,9 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-    <bean id="gcService" class="spring_xml.service.GCService"></bean>
-    <bean id="helloController" class="spring_xml.controller.HelloController">
-        <property name="helloService" ref="gcService"/>
+    <bean id="descontoCategoriaService" class="spring.java_puro.services.DescontoCategoriaService"></bean>
+    <bean id="pedidoController" class="spring.java_puro.controller.PedidoController">
+        <property name="pedidoService" ref="pedidoService"/>
     </bean>
 
 </beans>
