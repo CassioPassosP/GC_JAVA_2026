@@ -29,10 +29,9 @@ public class ProductController {
         return service.getProduct(new Product(product_name));
     }
 
-//    @PutMapping("/product/put/{product_name}")
-//    public Product foundProduct(@PathVariable String product_name) {
-//        return service.updateProduct(new Product(product_name));
-//    }
-
+    @PutMapping("/product/put/{product_name}")
+    public Product updateProduct(@PathVariable String product_name) {
+        return service.updateProduct(new Product(product_name));
+    }
 
 }
