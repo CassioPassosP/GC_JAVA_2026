@@ -1,0 +1,35 @@
+{
+  "info": {
+    "name": "Chaos Shop API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Checkout - 1 caneta",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"produto\": \"caneta\",\n  \"quantidade\": 1\n}" },
+        "url": { "raw": "http://localhost:8080/api/loja/checkout", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "loja", "checkout"] }
+      }
+    },
+    {
+      "name": "Checkout - 2 cadernos",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"produto\": \"caderno\",\n  \"quantidade\": 2\n}" },
+        "url": { "raw": "http://localhost:8080/api/loja/checkout", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "loja", "checkout"] }
+      }
+    },
+    {
+      "name": "Cadastro - maria",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nome\": \"maria\",\n  \"senha\": \"abc12345\"\n}" },
+        "url": { "raw": "http://localhost:8080/api/usuarios/cadastrar", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["api", "usuarios", "cadastrar"] }
+      }
+    }
+  ]
+}
