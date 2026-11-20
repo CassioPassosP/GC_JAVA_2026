@@ -1,0 +1,31 @@
+$kind: http-request
+url: "{{baseUrl}}/employee/{{employeeId}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{employeeId}",
+      "store": { "id": {{storeId}} },
+      "name": "Funcionario Postman Atualizado",
+      "email": "funcionario.postman@example.com",
+      "password": "SenhaTemporaria123!",
+      "position": "COLABORADOR",
+      "initiationDate": "2024-01-01T00:00:00.000Z",
+      "currentState": "ATIVO",
+      "inLearningPath": false,
+      "lastInteraction": null,
+      "registerDate": null,
+      "startDate": "2024-01-01T00:00:00.000Z",
+      "consent": true,
+      "consentAt": null,
+      "streak": 0,
+      "lastActive": "2026-10-30T00:00:00.000Z"
+    }
+scripts:
+  - type: afterResponse
+    code: pm.test('HTTP 200', function () { pm.response.to.have.status(200); });
+    language: text/javascript
+order: 4000

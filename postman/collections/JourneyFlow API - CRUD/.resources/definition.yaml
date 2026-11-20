@@ -1,0 +1,26 @@
+$kind: collection
+description: |-
+  Collection para testar os endpoints REST do JourneyFlow.
+
+  Configure baseUrl (padrao: http://localhost:8080). Se implementado, execute '00 - Autenticacao > Register' para cadastrar uma conta; depois execute '00 - Autenticacao > Login' para obter e salvar automaticamente o JWT na variavel de collection token. As demais requisicoes herdam Bearer {{token}}.
+
+  Algumas chamadas estao marcadas porque os controllers ainda podem nao combinar com as assinaturas atuais dos services: confira os DTOs e rotas indicados nas descricoes. Execute os grupos na ordem numerada para preencher automaticamente os IDs usados nos corpos das requisicoes. O grupo de limpeza deve ser executado por ultimo.
+variables:
+  baseUrl: http://localhost:8080
+  token: ""
+  storeId: ""
+  managerId: ""
+  employeeId: ""
+  pillId: ""
+  reportId: ""
+  pointsId: ""
+  chatId: ""
+  alertId: ""
+  authenticatedUserId: ""
+  authenticatedUserRole: ""
+auth:
+  - id: feaf4e58-b880-400f-9ade-21378e0083f5
+    type: bearer
+    name: bearer auth
+    credentials:
+      token: "{{token}}"

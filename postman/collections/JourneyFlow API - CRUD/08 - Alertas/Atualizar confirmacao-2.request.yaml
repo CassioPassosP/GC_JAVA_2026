@@ -1,0 +1,8 @@
+$kind: http-request
+name: Atualizar confirmacao
+url: "{{baseUrl}}/alert/{{alertId}}/confirmed"
+method: PATCH
+body:
+  type: json
+  content: "{\r\n  \"confirmed\": true\r\n}"
+order: 5359

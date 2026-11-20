@@ -1,0 +1,18 @@
+$kind: http-request
+name: Register loja
+url: "{{baseUrl}}/auth/register"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Mercado Silva\",\r
+
+    \    \"email\": \"loja@email.com\",\r
+
+    \    \"password\": \"12345678\",\r
+
+    \    \"type\": \"ESTABELECIMENTO\"\r
+
+    }"
+order: 3000

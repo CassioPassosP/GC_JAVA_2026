@@ -1,0 +1,14 @@
+$kind: http-request
+name: Login loja
+url: "{{baseUrl}}/auth/login"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"email\": \"loja@email.com\",\r
+
+    \  \"password\": \"12345678\"\r
+
+    }\r\n"
+order: 4580

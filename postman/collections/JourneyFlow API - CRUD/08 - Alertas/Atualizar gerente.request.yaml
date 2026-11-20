@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{baseUrl}}/alert/{{alertId}}/assign"
+method: PATCH
+body:
+  type: json
+  content: "{\r\n  \"managerId\": 1\r\n}"
+order: 7000

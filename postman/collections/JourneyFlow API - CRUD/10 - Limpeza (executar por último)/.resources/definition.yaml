@@ -1,0 +1,3 @@
+$kind: collection
+description: Execute somente depois de testar os recursos que dependem destas entidades.
+order: 11000

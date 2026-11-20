@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{baseUrl}}/pills"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+        "title": "Segurança no Trabalho",
+        "content": "Aprenda sobre segurança no ambiente de trabalho.",
+        "quizQuestion": "Qual equipamento protege os olhos?",
+        "quizOptions": "[\"Óculos de proteção\", \"Capacete\", \"Luvas\"]",
+        "quizCorrect": 0,
+        "dayFrom": 1
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('HTTP 201', function () { pm.response.to.have.status(201); });
+      if (pm.response.code >= 200 && pm.response.code < 300) { const payload = pm.response.json(); if (payload.id !== undefined) { pm.collectionVariables.set('pillId', String(payload.id)); } }
+    language: text/javascript
+order: 1000

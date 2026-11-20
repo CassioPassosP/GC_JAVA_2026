@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/pillprogress/{{employeeId}}/{{pillId}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "employeeId": "{{employeeId}}",
+      "pillId": {{pillId}}
+    }
+scripts:
+  - type: afterResponse
+    code: pm.test('HTTP 200', function () { pm.response.to.have.status(200); });
+    language: text/javascript
+order: 4000

@@ -1,0 +1,21 @@
+$kind: http-request
+url: "{{baseUrl}}/manager/{{managerId}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": {{managerId}},
+      "storeId": {{storeId}},
+      "name": "Gerente Postman Atualizado",
+      "email": "gerente.postman@example.com",
+      "password": "SenhaTemporaria123!",
+      "position": "GERENTE"
+    }
+scripts:
+  - type: afterResponse
+    code: pm.test('HTTP 200', function () { pm.response.to.have.status(200); });
+    language: text/javascript
+order: 4000
